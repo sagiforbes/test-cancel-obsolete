@@ -5,14 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: stop old jobs
     steps:
-      - uses: actions/setup-node@v1
-        with:
-          version: 16
       - name: cancel old runs
         uses: sagiforbes/cancel-obsolete-runs@main
         with:
-          branchName: 'main'
-          workflow: 'my-workflow'
+          branchName: '${{github.ref_name}}'
+          workflow: '${{github.workflow}}'
   slow-run:
     needs: stop-old-run
     runs-on: ubuntu-latest
