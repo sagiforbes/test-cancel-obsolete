@@ -11,8 +11,8 @@ jobs:
       - name: cancel old runs
         uses: sagiforbes/cancel-obsolete-runs@main
         with:
-          branchName: '${{github.ref_name}}'
-          workflow: '${{github.workflow}}'
+          token: ${{secrets.GITHUB_TOKEN}}
+          
   slow-run:
     needs: stop-old-run
     runs-on: ubuntu-latest
