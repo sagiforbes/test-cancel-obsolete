@@ -1,24 +1,18 @@
 on: 
   pull_request:
-    types:[opened,reopened,edited]
+    types: [opened,reopened,edited,synchronize]
     
 
 jobs:
-  stop-old-run:
+  build:
     runs-on: ubuntu-latest
-    name: stop old jobs
     steps:
       - name: cancel old runs
         uses: sagiforbes/cancel-obsolete-runs@main
         with:
-          branchName: '${{github.ref_name}}'
-          workflow: '${{github.workflow}}'
-  slow-run:
-    needs: stop-old-run
-    runs-on: ubuntu-latest
-    steps:
+          token: ${{secrets.GITHUB_TOKEN}}
       - name: delay
         run: |
           echo running delay
           env
-          sleep 14
+          sleep 300
