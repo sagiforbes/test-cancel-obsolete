@@ -1,0 +1,20 @@
+on: [push]
+
+jobs:
+  stop-old-run:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: cancel old runs
+        uses: sagiforbes/cancel-obsolete-runs@main
+        with:
+          branch_name: '${{github.ref_name}}'
+          workflow: '${{github.workflow}}'
+  slow-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: delay
+        run: |
+          echo running delay
+          env
+          sleep 300
