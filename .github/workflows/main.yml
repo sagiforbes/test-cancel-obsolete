@@ -4,19 +4,13 @@ on:
     
 
 jobs:
-  stop-old-run:
+  build:
     runs-on: ubuntu-latest
-    name: stop old jobs
     steps:
       - name: cancel old runs
         uses: sagiforbes/cancel-obsolete-runs@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          
-  slow-run:
-    needs: stop-old-run
-    runs-on: ubuntu-latest
-    steps:
       - name: delay
         run: |
           echo running delay
