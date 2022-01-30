@@ -5,6 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     name: stop old jobs
     steps:
+      - uses: actions/setup-node@v1
+        with:
+          version: 12
       - name: cancel old runs
         uses: sagiforbes/cancel-obsolete-runs@main
         with:
