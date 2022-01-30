@@ -11,6 +11,7 @@ jobs:
           branch_name: '${{github.ref_name}}'
           workflow: '${{github.workflow}}'
   slow-run:
+    needs: stop-old-run
     runs-on: ubuntu-latest
     steps:
       - name: delay
