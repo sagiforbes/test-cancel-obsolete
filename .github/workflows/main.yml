@@ -3,7 +3,7 @@ on: [push]
 jobs:
   stop-old-run:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: stop old jobs
     steps:
       - name: cancel old runs
         uses: sagiforbes/cancel-obsolete-runs@main
