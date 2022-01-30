@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: cancel old runs
-        uses: sagiforbes/cancel-obsolete-runs@v1
+        uses: sagiforbes/cancel-obsolete-runs@main
         with:
           token: ${{secrets.GITHUB_TOKEN}}
       - name: delay
