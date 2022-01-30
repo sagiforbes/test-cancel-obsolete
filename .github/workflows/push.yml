@@ -16,7 +16,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: cancel old runs
-        uses: sagiforbes/cancel-obsolete-runs@main
+        uses: sagiforbes/cancel-obsolete-runs@v1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
